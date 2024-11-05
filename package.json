@@ -10,6 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.11.0"
+    "@vant/weapp": "^1.11.0",
+    "crypto-js": "^3.3.0",
+    "factory-entry-application": "file:"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2"
   }
 }

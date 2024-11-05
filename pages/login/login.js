@@ -7,10 +7,10 @@ Page({
     userId: "",
     password: "",
   },
-  onLoad(){
-    let userId=wx.getStorageSync('userId')
+  onLoad() {
+    let userId = wx.getStorageSync('userId')
     this.setData({
-      userId:userId
+      userId: userId
     })
     // console.log(this.data.userId)
   },
@@ -31,7 +31,8 @@ Page({
         password: this.data.password
       },
       (res) => {
-        //console.log(res.data)
+        console.log(res.data)
+        console.log("111111")
         wx.setStorageSync('userId', this.data.userId)
         if (res.data.errorCode == 100000) {
           app.globalData.userId = this.data.userId;

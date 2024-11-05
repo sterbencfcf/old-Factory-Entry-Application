@@ -1,3 +1,23 @@
+const CryptoJS = require("crypto-js");
+
+//加密数据
+function encryptData(data) {
+  let key = "liming";
+  const encryptedData = CryptoJS.DES.encrypt(
+    JSON.stringify(data),
+    key
+  ).toString();
+  return encryptedData;
+}
+
+//解密数据
+function decryptData(encryptedData) {
+  let key = "liming";
+  const bytes = CryptoJS.DES.decrypt(encryptedData, key);
+  const originalData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+  return originalData;
+}
+
 var myFunction = {
   getPageChange() {
     if (typeof this.getTabBar === "function" && this.getTabBar()) {
@@ -13,7 +33,8 @@ function loginFunc(url, data, cb) {
   wx.showLoading({});
   wx.request({
     url: url,
-    data: data,
+    // data: data,
+    data: encryptData(data),
     header: {
       "Content-Type": "application/x-www-form-urlencoded",
       "cache-control": "no-cache",
@@ -22,7 +43,10 @@ function loginFunc(url, data, cb) {
     responseType: "text",
     success: function (res) {
       wx.clearStorage();
-      wx.setStorageSync("sessionid", res.header["Set-Cookie"].replaceAll('path=/,', ''));
+      wx.setStorageSync(
+        "sessionid",
+        res.header["Set-Cookie"].replaceAll("path=/,", "")
+      );
       wx.hideLoading();
       return typeof cb == "function" && cb(res);
     },
@@ -289,10 +313,10 @@ function isCard(value) {
 }
 //车牌号校验
 function isCarNum(value) {
-  let reg = /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/
+  let reg =
+    /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/;
   const careg = reg.test(value);
-  return careg
-
+  return careg;
 }
 module.exports = {
   myFunction,
@@ -306,5 +330,5 @@ module.exports = {
   postRequest_Data_session,
   isPhone,
   isCard,
-  isCarNum
+  isCarNum,
 };

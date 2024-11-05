@@ -11,12 +11,8 @@
       style="{{ status(index, active) === 'inactive' ? 'color: ' + inactiveColor: '' }}"
     >
       <view class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
-        <view class="van-step__title_row">
-          <span class="text-class">{{ item.text }}</span>
-          <span class="person-class">{{ item.person }}</span>
-        </view>
-        <view class="desc-class">{{ item.time }}</view>
-        <view class="time-class">{{ item.desc }}</view>
+        <view>{{ item.text }}</view>
+        <view class="desc-class">{{ item.desc }}</view>
       </view>
       <view class="van-step__circle-container">
         <block wx:if="{{ index !== active }}">
