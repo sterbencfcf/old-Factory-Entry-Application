@@ -1,0 +1,33 @@
+<!-- <navBar default_data="{{ defaultData }}" class="nav"></navBar> -->
+<image class="bg_pic" src="../../picture/user/bg.png"></image>
+<view class="body">
+  <view class="userArea" bindtap="goMyInfo">
+    <view class="userInfo">
+      <image class="userinfo_pic" src="../../picture/user/avatar.png"></image>
+      <view class="userinfo_name">{{ userInfo.userName }}</view>
+      <view class="userinfo_department">{{ userInfo.department }}</view>
+    </view>
+  </view>
+  <view class="downArea">
+    <view class="func funcone" bindtap="goChangePassword">
+      <view class="left">
+        <image class="icon" src="../../picture/user/lock-off.png"></image>
+        <view class="func_text">修改密码</view>
+      </view>
+      <van-icon custom-class="func_icon" name="arrow" />
+    </view>
+    <view class="func" bindtap="logout">
+      <view class="left">
+        <image class="icon" src="../../picture/user/poweroff.png"></image>
+        <view class="func_text">退出登录</view>
+      </view>
+      <van-icon custom-class="func_icon" name="arrow" />
+    </view>
+    <view class="namearea">
+      <view class="name">联系人：</view>
+      <!-- <view class="name">18040211223 何重</view> -->
+      <view class="name">18025989915 楚凡</view>
+    </view>
+
+  </view>
+</view>

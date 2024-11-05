@@ -1,0 +1,9 @@
+/* custom-tab-bar/index.wxss */
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.text{
+  font-size: 20rpx;
+  /* color: #131313; */
+}

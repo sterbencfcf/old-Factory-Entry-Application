@@ -1,0 +1,110 @@
+page {
+  height: 100%;
+  background: #F5F6F7;
+}
+
+/* 信息区 */
+.infoArea {
+  /* height: 89.8%; */
+  height: 90%;
+  padding: 32rpx 32rpx 32rpx;
+  box-sizing: border-box;
+}
+
+.list {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.infoCard {
+  width: 100%;
+  padding: 30rpx 32rpx 14rpx 32rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.line1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32rpx;
+  color: #000000;
+  max-width: 480rpx;
+}
+
+/* .line1_info_done {
+  color: #585ce5;
+} */
+
+.line4 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.line4_btn {
+  margin-left: 20rpx;
+  width: 164rpx;
+  height: 60rpx;
+  background: #FFFFFF;
+  border-radius: 60rpx 60rpx 60rpx 60rpx;
+  border: 2rpx solid #DADADA;
+  text-align: center;
+  line-height: 60rpx;
+  color: #666666;
+}
+
+
+.fontSize24 {
+  font-size: 24rpx;
+}
+
+.time {
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+
+.createPerson {
+  color: #333333;
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.person {
+  margin-right: 12rpx;
+  width: 28rpx;
+  height: 28rpx;
+  /* vertical-align: text-top; */
+}
+
+.text1 {
+  color: #999999;
+}
+
+.van-divider {
+  margin: 16rpx 0 16rpx 0 !important;
+}
+
+
+/* 上弹窗样式 */
+.popup-title {
+  font-weight: 600;
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  height: 116rpx;
+  line-height: 116rpx;
+}
+
+.label-class {
+  color: rgba(102, 102, 102, 0.9) !important;
+}

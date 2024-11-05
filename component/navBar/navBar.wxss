@@ -1,0 +1,46 @@
+.nav_bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #2E9BFF;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  /* align-items: center; */
+}
+.nav_bar_arrow {
+  /* content: "";
+  height: 20rpx;
+  width: 20rpx;
+  border-color: #334154;
+  border-style: solid;
+  border-width: 3rpx 3rpx 0 0;
+  transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0); */
+  height: 48rpx;
+  width: 48rpx;
+  position: absolute;
+  bottom: 18rpx;
+  margin-left: 24rpx;
+}
+
+.func_icon {
+  font-size: 48rpx !important;
+  color: #fff;
+  position: absolute;
+  bottom: 18rpx;
+  left: 24rpx;
+}
+
+.nav_bar_text {
+  position: absolute;
+  bottom: 18rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #fff;
+}
+.content {
+  display: inline-block;
+  /* margin-top: 10rpx; */
+}

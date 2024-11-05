@@ -1,0 +1,12 @@
+<!-- 自定义顶部栏 -->
+<view class="nav_bar" style="height:{{navBarHeight}}px;">
+    <!-- <view class="nav_bar_arrow" hidden="{{default_data.ifShow}}" bindtap="back"></view> -->
+    <van-icon custom-class="func_icon" name="arrow-left" wx:if="{{!default_data.ifShow}}" bindtap="back"/>
+    <view class="nav_bar_text">
+        <!-- style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; left:{{menuRight}}px; bottom:{{menuBotton}}px;" -->  
+      {{default_data.text}}
+    </view>
+</view>
+<!-- 内容区域：
+    自定义顶部栏用的fixed定位，会遮盖到下面内容，注意设置好间距 -->
+<view class="content" style="margin-top:{{navBarHeight}}px;"></view>

@@ -1,0 +1,26 @@
+<view class="content">
+  <image class="logintop_pic" src="../../picture/login/top.png"></image>
+  <image class="loginbg_pic" src="../../picture/login/bg.png"></image>
+  <form bindsubmit="loginForm" class="loginForm">
+    <view class="title">
+      <view class="title_up">您好！</view>
+      <view class="title_up title_up2">欢迎使用当日访客通</view>
+    </view>
+    <image class="loginlogo_pic" src="../../picture/login/logo.png"></image>
+    <view class="input_content_all">
+      <view class="input_content">
+        <image class="icon" src="../../picture/login/user.png"></image>
+        <input class="input" name="userId" placeholder="请输入登录账号" value="{{userId}}"></input>
+      </view>
+      <view class="input_content">
+        <image class="icon" src="../../picture/login/lock.png"></image>
+        <input class="input" password="{{true}}" name="password" placeholder="请输入密码"></input>
+      </view>
+    </view>
+    <button form-type="submit" class="btn" hover-class='btn_hover'>登录</button>
+    <view class="title_down" bindtap='goRegister'>
+      没有账号？
+      <view class="title_down2">立即注册</view>
+    </view>
+  </form>
+</view>

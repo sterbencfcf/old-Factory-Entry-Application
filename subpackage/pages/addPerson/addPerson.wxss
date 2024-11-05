@@ -1,0 +1,26 @@
+.btn {
+  position: fixed;
+  bottom: 32rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  width: 686rpx;
+  height: 96rpx;
+  background: linear-gradient( 270deg, #0788FF 0%, #4BA9FF 100%);
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+  font-weight: 600;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  line-height: 96rpx;
+}
+.btn_hover {
+  background-color: rgb(215, 217, 228);
+}
+.van-field__label{
+  /* font-size: 32rpx; */
+  color: rgba(0,0,0,0.9) !important;
+}
+.formArea{
+  padding-left: 24rpx;
+}
+

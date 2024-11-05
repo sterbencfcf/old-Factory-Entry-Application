@@ -1,0 +1,160 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "Factory%20Entry%20Application",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  },
+  "libVersion": "3.4.1",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "subpackage/pages/delayChoose/delayChoose",
+          "pathName": "subpackage/pages/delayChoose/delayChoose",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/delay/delay",
+          "pathName": "subpackage/pages/delay/delay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/messageDetail/messageDetail",
+          "pathName": "subpackage/pages/messageDetail/messageDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/historyApply/historyApply",
+          "pathName": "subpackage/pages/historyApply/historyApply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/message/message",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/apply/apply",
+          "pathName": "subpackage/pages/apply/apply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpackage/pages/apply/apply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpackage/pages/addPerson/addPerson",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpackage/pages/externalPersonInfo/externalPersonInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpackage/pages/changePassword/changePassword",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/usercenter/usercenter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/handle/handle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpackage/pages/messageDetail/messageDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/handle/handle",
+          "pathName": "pages/handle/handle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/messageDetail/messageDetail",
+          "pathName": "subpackage/pages/messageDetail/messageDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/apply/apply",
+          "pathName": "subpackage/pages/apply/apply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/historyApply/historyApply",
+          "pathName": "subpackage/pages/historyApply/historyApply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/messageDetail/messageDetail",
+          "pathName": "subpackage/pages/messageDetail/messageDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpackage/pages/agree/agree",
+          "pathName": "subpackage/pages/agree/agree",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/usercenter/usercenter",
+          "pathName": "pages/usercenter/usercenter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/statistics/statistics",
+          "pathName": "pages/statistics/statistics",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

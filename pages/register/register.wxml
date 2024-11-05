@@ -1,0 +1,105 @@
+<view wx:if="{{envVersion!=='release'}}">功能正在开发中</view>
+<view wx:else class="content">
+  <image class="logintop_pic" src="../../picture/login/top.png"></image>
+  <image class="loginbg_pic" src="../../picture/login/bg.png"></image>
+  <!-- 选择页面 -->
+  <view class="choose_page" wx:if="{{choose==0}}">
+    <view class="title">
+      <view class="title_up">欢迎注册</view>
+      <view class="title_up title_up2">请选择您的身份</view>
+      <!-- <view class="title_down" bindtap='goBack'>已有账号，去登录</view> -->
+    </view>
+    <image class="loginlogo_pic" src="../../picture/login/logo.png"></image>
+    <view class="choosebtn">
+      <view class="choosebtn_content" bindtap='choose' data-id="1">
+        <image class="choose1" src="../../picture/register/choose1.png"></image>
+        <view class="choose1_text">我是厂内员工</view>
+        <view class="zhezhao" bindtap='choose' data-id="1"></view>
+      </view>
+      <view class="choosebtn_content" bindtap='choose' data-id="2">
+        <image class="choose2" src="../../picture/register/choose2.png"></image>
+        <view class="choose2_text">我是厂外人员</view>
+        <view class="zhezhao" bindtap='choose' data-id="2"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 厂内员工 -->
+  <view class="choose_page" wx:if="{{choose==1}}">
+    <view class="title1">
+      <view class="title_up">注册</view>
+    </view>
+    <form bindsubmit="insideForm">
+      <view class="input_content_all">
+        <!-- <view class="input_content" bindtap="showOrgPopup">
+          <image class="icon" src="../../picture/register/usergroup.png"></image>
+          <input class="input" name="org" disabled="true" model:value="{{ org }}" placeholder="请选择一级部门"></input>
+        </view>
+        <van-popup round show="{{ orgShow }}" show-toolbar position="bottom" bind:close="onOrgClose">
+          <van-picker show-toolbar columns="{{ orgColumns }}" bind:cancel="onOrgClose" bind:confirm="onOrgConfirm" />
+        </van-popup> -->
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/fork.png"></image>
+          <input class="input" name="orgDetail" placeholder="请输入详细室名称"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/badge.png"></image>
+          <input class="input" name="userId" placeholder="请输入胸卡号"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/mobile.png"></image>
+          <input class="input" name="telephone" placeholder="请输入手机号"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/lock.png"></image>
+          <input class="input" password="{{true}}" name="password" placeholder="请输入密码"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/lock-on.png"></image>
+          <input class="input" password="{{true}}" name="passwordAgain" placeholder="请再次输入密码"></input>
+        </view>
+      </view>
+      <button form-type="submit" class="btn" hover-class='btn_hover'>注册</button>
+      <view class="title_down" bindtap='chooseAgain'>已有账号？
+        <view class="title_down2">返回登录</view>
+      </view>
+    </form>
+  </view>
+  <!-- 厂外人员 -->
+  <view class="choose_page" wx:if="{{choose==2}}">
+    <view class="title2">
+      <view class="title_up">注册</view>
+    </view>
+    <form bindsubmit="outsideForm">
+      <view class="input_content_all">
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/user-avatar.png"></image>
+          <input class="input" name="userName" placeholder="请输入姓名"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/root-list.png"></image>
+          <input class="input" name="userId" placeholder="请输入身份证号"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/mobile.png"></image>
+          <input class="input" name="telephone" placeholder="请输入手机号"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/company.png"></image>
+          <input class="input" name="company" placeholder="请输入公司全称"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/lock.png"></image>
+          <input class="input" password="{{true}}" name="password" placeholder="请输入密码"></input>
+        </view>
+        <view class="input_content">
+          <image class="icon" src="../../picture/register/lock-on.png"></image>
+          <input class="input" password="{{true}}" name="passwordAgain" placeholder="请再次输入密码"></input>
+        </view>
+      </view>
+      <button form-type="submit" class="btn" hover-class='btn_hover'>注册</button>
+      <view class="title_down" bindtap='chooseAgain'>已有账号？
+        <view class="title_down2">返回登录</view>
+      </view>
+    </form>
+  </view>
+</view>

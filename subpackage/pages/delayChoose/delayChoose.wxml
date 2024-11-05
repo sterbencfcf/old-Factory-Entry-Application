@@ -1,0 +1,27 @@
+<navBar class="navBar_text" default_data="{{ defaultData }}" arrowOnShow="{{ arrowOnShow }}"></navBar>
+<view class="infoArea">
+  <scroll-view class="list" scroll-y="{{ true }}" enable-flex bindscrolltolower="getMore">
+    <view class="infoCard" wx:for="{{ applyInfo }}" wx:key="id">
+      <view class="line1">
+        <view class="title">{{ item.title}}</view>
+        <van-tag size="large" color="#E3F9E9" text-color="#42AE80">已完成</van-tag>
+      </view>
+      <view class="time fontSize24">
+        <image class="person" src="../../../picture/historyApply/time.png"></image>
+        <span class="text1">创建时间：</span>
+        {{item.createDate}}
+      </view>
+      <view class="createPerson fontSize24">
+        <image class="person" src="../../../picture/historyApply/time.png"></image>
+        <span class="text1">有效时间：</span>
+        {{item.visitBeginDate}}至{{item.visitEndDate}}
+      </view>
+      <van-divider />
+      <view class="line4">
+        <view class="line4_btn fontSize24" bindtap="ondetail" data-index="{{item}}" id="{{ item.id }}"
+          data-currentstate="{{item.currentstate}}">查看详情</view>
+        <view class="line4_btn fontSize24" bindtap="ondelay" data-index="{{item}}">点击延时</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

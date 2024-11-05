@@ -1,0 +1,60 @@
+<navBar class="navBar_text" default_data="{{ defaultData }}" arrowOnShow="{{ arrowOnShow }}"></navBar>
+<view class="scrollArea">
+  <view class="scroll_contain">
+    <!-- 延时信息 -->
+    <view class="text">
+      <span class="blueBox"></span>延时信息
+    </view>
+    <view class="bas_info_content">
+      <view class="info_line">
+        <!-- 0 延时表单
+        <van-field required model:value="{{ visitName }}" is-link readonly label="延时申请单" placeholder="请选择申请单"
+          bind:tap="onClickVisitIdList" />
+        <van-popup custom-style="{height:90%}" bind:close="onCloseVisitIdList" show="{{ showVisitIdList }}" round
+          position="bottom">
+          <van-picker show-toolbar columns="{{ visitIdList }}" bind:cancel="onCloseVisitIdList"
+            bind:confirm="onVisitIdListConfirm" />
+        </van-popup> -->
+        <view>
+          <!-- 1 延时地点 -->
+          <van-field required label="延时地点" model:value="{{ delayPlace }}" placeholder="请输入延时地点" />
+          <!-- 2 延时日期 -->
+          <!-- <van-cell required title="选择延时日期" value="{{ date }}" bind:click="onShowDate" /> -->
+          <van-field required value="{{ date }}" readonly label="延时日期" placeholder="请选择日期" />
+          <!-- <van-calendar allow-same-day="true" color="#585ce5" show="{{ showDate }}" type="range"
+            bind:close="onCloseShowDate" bind:confirm="onConfirmShowDate" max-date="{{ maxDate }}" /> -->
+          <!-- 3 延时开始时间 -->
+          <!-- <van-cell required title="延时开始时间" value="{{ delayBeginTime }}" bind:click="onShowDelayBeginTime" /> -->
+          <van-field required value="{{ delayBeginTime }}" is-link readonly label="延时开始时间" placeholder="请选择时间"
+            bind:tap="onShowDelayBeginTime" />
+          <van-popup custom-style="{height:90%}" bind:close="onCloseDelayBeginTime" show="{{ ShowDelayBeginTime }}"
+            round position="bottom">
+            <van-datetime-picker type="time" value="{{ delayBeginTime }}" bind:cancel="onCloseDelayBeginTime"
+              bind:confirm="onDelayBeginTimeConfirm" filter="{{ filter }}" max-hour="{{maxHour}}" />
+          </van-popup>
+          <!-- 4 延时结束时间 -->
+          <!-- <van-cell required title="延时结束时间" value="{{ delayEndTime }}" bind:click="onShowDelayEndTime" /> -->
+          <van-field required value="{{ delayEndTime }}" is-link readonly label="延时结束时间" placeholder="请选择时间"
+            bind:tap="onShowDelayEndTime" />
+          <van-popup custom-style="{height:90%}" bind:close="onCloseDelayEndTime" show="{{ ShowDelayEndTime }}" round
+            position="bottom">
+            <van-datetime-picker type="time" value="{{ delayEndTime }}" bind:cancel="onCloseDelayEndTime"
+              bind:confirm="onDelayEndTimeConfirm" filter="{{ filter }}" min-hour="{{minHour}}" />
+          </van-popup>
+          <!-- 5 陪同人员 -->
+          <van-field required label="陪同人员" model:value="{{ accompanyinyPerson }}" placeholder="请输入陪同人员" />
+          <!-- 6 联系电话 -->
+          <van-field required label="联系电话" model:value="{{ telephone }}" placeholder="请输入联系电话" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="chooseArea">
+  <view class="chooseBtn1 chooseBtn" hover-class="chooseBtn1_hover" hover-stay-time="50" bindtap="onCancel">
+    取消
+  </view>
+  <view class="chooseBtn2 chooseBtn" bindtap="onSubmit">
+    <image class="icon" src="../../../picture/apply/upload.png"></image>提交
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view>
+  <vant_tabbar
+    active="{{ active }}"
+    active-color="#0788FF"
+    inactive-color="#131313"
+    bind:change="onChange"
+  >
+    <vant_tabbar_item
+      wx:for="{{ list }}"
+      wx:key="tabNum"
+    >
+        <image
+          class="icon"
+          slot="icon"
+          src="{{ item.icon }}"
+        />
+        <image
+          class="icon"
+          slot="icon-active"
+          src="{{ item.activeIcon }}"
+        />
+        
+        <view class="text">{{ item.text }}</view>
+    </vant_tabbar_item>
+  </vant_tabbar>
+</view>

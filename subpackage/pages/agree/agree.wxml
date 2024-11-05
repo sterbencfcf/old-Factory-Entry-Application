@@ -1,0 +1,26 @@
+<navBar class="navBar_text" default_data="{{ defaultData }}" arrowOnShow="{{ arrowOnShow }}"></navBar>
+<view class="textArea">
+  <view class="contain">
+    <text class="title">外来人员、车辆进厂安全告知</text>
+    <text class="title">\n</text>
+    <text class="inside"
+      decode="{{true}}">一.&nbsp;严格遵守公司安全保卫、保密相关法规和规章制度，不以任何方式接触和知悉业务工作活动范围外的国家秘密、商业秘密、工作秘密及内部事项等信息，遵守黎明公司关于外来人员电子设备使用管理要求，严禁将苹果手机等国外品牌手机、手表、手环、电脑、平板等智能设备带入厂区，未经允许严禁在厂区内拍照，严格按照指定的工作区域开展业务活动；进入厂区后不得随意走动或进入未授权区域。接受并配合保卫、保密部门监督、检查、保密教育及培训。</text>
+    <text class="inside" decode="{{true}}">二.&nbsp;杜绝伪造、借用、串用通行凭证。</text>
+    <text class="inside" decode="{{true}}">三.&nbsp;进入厂区内遵守各类安全、消防、交通等警示标识指示要求，不流动吸烟，到厂区内指定地点吸烟。</text>
+    <text class="inside" decode="{{true}}">四.&nbsp;驾驶机动/非机动车辆按厂区道路标志、标线行驶，严禁超速和违停，车辆严禁占用、堵塞消防通道。</text>
+    <text class="inside" decode="{{true}}">五.&nbsp;运输危险化学品的车辆应采取可靠的防护和应急措施，未经允许不得携带易燃易爆等危险品进入厂区。</text>
+    <text class="inside" decode="{{true}}">六.&nbsp;特种作业时，人员必须持证上岗，特种设备必须符合国家有关规定，涉及登高、动火等危险作业需办理审批手续后方可进行作业。</text>
+    <text class="inside" decode="{{true}}">七.&nbsp;严禁随意倾倒危险废物、建筑残土、生活垃圾等。</text>
+    <text class="inside" decode="{{true}}">八.&nbsp;严禁驾驶国外品牌智能汽车进入厂区。</text>
+    <text class="inside">违反上述告知内容，考核主接单位，情况严重追究个人责任。</text>
+  </view>
+</view>
+<view class="chooseArea">
+  <view class="chooseBtn1 chooseBtn" hover-class="chooseBtn1_hover" hover-stay-time="50" bindtap="onCancel">
+    取消
+  </view>
+  <view class="chooseBtn {{btn_time==0?'chooseBtn2':'chooseBtn2_disabble'}}" bindtap="onAgree"
+    style="pointer-events: {{action}};">
+    <image class="icon" src="../../../picture/agree/agree.png"></image>{{btn_data}} {{btn_time}}
+  </view>
+</view>

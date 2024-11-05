@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "navBar": "/component/navBar/navBar",
+    "vant_tab": "@vant/weapp/tab/index",
+    "vant_tabs": "@vant/weapp/tabs/index",
+    "vant_steps": "@vant/weapp/steps/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

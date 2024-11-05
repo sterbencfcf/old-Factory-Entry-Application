@@ -1,0 +1,24 @@
+<navBar class="navBar_text" default_data="{{defaultData}}" arrowOnShow="{{arrowOnShow}}"></navBar>
+<view wx:if="{{envVersion!=='release'}}">功能正在开发中</view>
+<view wx:else>
+    <view class="formArea">
+        <van-field required label="姓名" model:value="{{ name }}" placeholder="请输入姓名" />
+        <van-field required model:value="{{ sex }}" is-link readonly label="性别" bind:tap="showSexPopup"
+            placeholder="请选择" />
+        <van-popup round show="{{ sexShow }}" show-toolbar title="性别" position="bottom" bind:close="onSexClose">
+            <van-picker show-toolbar title="性别" columns="{{ sexColumns }}" bind:cancel="onSexCancel"
+                bind:confirm="onSexConfirm" />
+        </van-popup>
+        <van-field required label="年龄" model:value="{{ age }}" placeholder="请输入年龄" />
+        <van-field required label="手机号" model:value="{{ telephone }}" placeholder="请输入手机号" />
+        <van-field required label="身份证号" model:value="{{ identityCardNum }}" placeholder="请输入身份证号" />
+        <van-field required label="是否司机" is-link readonly model:value="{{ isDriver }}" bind:tap="showDriPopup"
+            placeholder="请选择" />
+        <van-popup round show="{{ driShow }}" show-toolbar position="bottom" bind:close="onDriClose">
+            <van-picker show-toolbar title="是否司机" columns="{{ driColumns }}" bind:cancel="onDriCancel"
+                bind:confirm="onDriConfirm" />
+        </van-popup>
+        <van-field label="车牌号" model:value="{{ carLicenseNum }}" placeholder="没有可不填" />
+    </view>
+    <button class="btn" hover-class='btn_hover' bindtap="submit">确定</button>
+</view>

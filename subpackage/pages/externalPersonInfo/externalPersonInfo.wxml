@@ -1,0 +1,41 @@
+<navBar class="navBar_text" default_data="{{ defaultData }}" arrowOnShow="{{ arrowOnShow }}"></navBar>
+
+<view class="infoArea">
+  <scroll-view class="list" scroll-y="{{ true }}" enable-flex bindscrolltolower="getMore">
+    <view class="infoCard" wx:for="{{ personInfo }}" wx:key="id">
+      <view class="line1">
+        <view class="line1_name">{{ item.name }}</view>
+        <view class="line1_right">
+          <view class="line1_phone fontSize28">
+            <span class="text1">手机号: </span>
+            {{ item.telephone }}
+          </view>
+          <view class="line1_identity fontSize28">
+            <span class="text1">身份证: </span>
+            {{ item.identityCardNum ?item.identityCardNum: "暂无" }}
+          </view>
+          <view class="line2 fontSize20">
+            <van-tag size="" color="#F2F3FF" text-color="#0052D9">{{ item.sex == "m" ? "男" : "女" }}</van-tag>
+            <van-tag size="" color="#E3F9E9" text-color="#2BA471">{{ item.age }}岁</van-tag>
+            <van-tag size="" color="#FFF1E9" text-color="#E37318">司机: {{ item.isDriver == "0" ? "否" : "是" }}</van-tag>
+            <van-tag size="" color="#D7ECFF" text-color="#0788FF">车牌号: {{ item.carLicenseNum == null ? "无" : item.carLicenseNum }}</van-tag>
+          </view>
+        </view>
+      </view>
+      <van-divider />
+      <view class="line3">
+        <view class="line3_text fontSize28">
+          <image class="person" src="../../../picture/externalPersonInfo/person.png"></image>
+          创建人: {{ item.createBy }}
+        </view>
+        <view class="line3_btn fontSize28" bindtap="ondelete" id="{{ item.id }}">删除</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="funcArea">
+  <view class="addBtn" bindtap="addPerson">
+    <van-icon name="plus" custom-class="addBtn_icon" />
+    <view class="addBtn_text">新增人员</view>
+  </view>
+</view>

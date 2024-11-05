@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/handle/handle",
+    "pages/message/message",
+    "pages/statistics/statistics",
+    "pages/usercenter/usercenter",
+    "pages/register/register"
+  ],
+  "subPackages": [
+    {
+      "root": "subpackage",
+      "pages": [
+        "pages/agree/agree",
+        "pages/apply/apply",
+        "pages/historyApply/historyApply",
+        "pages/historyDelayApply/historyDelayApply",
+        "pages/delay/delay",
+        "pages/messageDetail/messageDetail",
+        "pages/changePassword/changePassword",
+        "pages/myInfo/myInfo",
+        "pages/externalPersonInfo/externalPersonInfo",
+        "pages/addPerson/addPerson",
+        "pages/delayChoose/delayChoose"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/handle/handle": {
+      "network": "all",
+      "packages": [
+        "subpackage"
+      ]
+    }
+  },
+  "usingComponents": {},
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#FF5F15",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/handle/handle",
+        "text": "办理"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

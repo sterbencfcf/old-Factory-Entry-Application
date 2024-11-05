@@ -1,0 +1,49 @@
+<navBar default_data="{{ defaultData }}"></navBar>
+<view class="content">
+    <vant_tabs class="content_title" color="#0788FF" animated swipeable sticky title-active-color="#0788FF"
+        title-inactive-color="rgba(0,0,0,0.9)">
+        <vant_tab title="待办">
+            <view class="content_area" style="height:{{height_tab}}px">
+                <scroll-view class="list" scroll-y="{{ true }}" enable-flex refresher-enabled
+                    refresher-triggered="{{triggered1}}" bindrefresherrefresh="refresh1" bindscrolltolower="getMore1"
+                    refresher-default-style="none">
+                    <view class="text_box" wx:for="{{ToDosInfo}}" wx:key="workitemid" bindtap="showMessage"
+                        data-index="{{item}}">
+                        <view class="createPerson fontSize28">
+                            <image class="person" src="../../picture/externalPersonInfo/person.png"></image>
+                            <span class="text1">创建人：</span>
+                            {{item.createByName}}
+                        </view>
+                        <view class="title">
+                            {{item.title==null?item.visitorCompany+'延时申请':item.title}}
+                        </view>
+                        <view class="time fontSize28">创建时间：{{item.starttime}}</view>
+                        <van-tag size="large" color="#D7ECFF" text-color="#0788FF">{{item.workitemname}}</van-tag>
+                    </view>
+                </scroll-view>
+            </view>
+        </vant_tab>
+        <vant_tab title="已办">
+            <view class="content_area" style="height:{{height_tab}}px">
+                <scroll-view class="list" scroll-y="{{ true }}" enable-flex refresher-enabled
+                    refresher-triggered="{{triggered2}}" bindrefresherrefresh="refresh2" bindscrolltolower="getMore2"
+                    refresher-default-style="none">
+                    <view class="text_box" wx:for="{{DonesInfo}}" wx:key="workitemid" bindtap="showMessage"
+                        data-index="{{item}}">
+                        <view class="createPerson fontSize28">
+                            <image class="person" src="../../picture/externalPersonInfo/person.png"></image>
+                            <span class="text1">创建人：</span>
+                            {{item.createByName}}
+                        </view>
+                        <view class="title">
+                            {{item.title==null?item.visitorCompany+'延时申请':item.title}}
+                        </view>
+
+                        <view class="time fontSize28">创建时间：{{item.starttime}}</view>
+                        <van-tag size="large" color="#D7ECFF" text-color="#0788FF">{{item.workitemname}}</van-tag>
+                    </view>
+                </scroll-view>
+            </view>
+        </vant_tab>
+    </vant_tabs>
+</view>

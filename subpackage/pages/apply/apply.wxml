@@ -1,0 +1,125 @@
+<navBar class="navBar_text" default_data="{{ defaultData }}" arrowOnShow="{{ arrowOnShow }}"></navBar>
+<view class="scrollArea">
+  <view class="scroll_contain">
+    <!-- 基本信息 -->
+    <view class="box1">
+      <view class="text">
+        <span class="blueBox"></span>基本信息
+      </view>
+      <view class="bas_info_content">
+        <view class="info_line">
+          <!-- 0 主接人 -->
+          <van-field required model:value="{{ receptionist }}" is-link readonly label="主接人" placeholder="请选择主接人"
+            bind:tap="onClickReceptionist" />
+          <van-popup custom-style="{height:90%}" bind:close="onCloseReceptionist" show="{{ showReceptionist }}" round
+            position="bottom">
+            <van-search model:value="{{ searchWord }}" focus="true" shape="round" placeholder="模糊搜索姓名"
+              bind:change="onSearch" />
+            <van-picker show-toolbar columns="{{ receptionistList }}" bind:cancel="onCloseReceptionist"
+              bind:confirm="onReceptionistConfirm" />
+          </van-popup>
+          <!-- 0.5 主接人电话 -->
+          <!-- <van-field required label="主接人电话" model:value="{{ receptionistPhone }}" readonly
+                        wx:if="{{envVersion=='release'}}" /> -->
+          <!-- 1 拟稿人所在部门 -->
+          <van-field required label="拟稿人部门" model:value="{{ createByDept }}" placeholder="请输入部门全称" readonly />
+          <!-- 2 外来人员单位 -->
+          <van-field required label="外来人员单位" model:value="{{ visitorCompany }}" placeholder="请输入单位全称" />
+          <!-- 3 是否为外籍或外企人员 -->
+          <van-field required label="是否为外籍外企人员" model:value="{{ isForeigner }}" is-link readonly
+            bindtap="showForeignerPopup" placeholder="请选择" error-message="{{isForeigner=='是'?errorMessage:''}}" />
+          <van-popup round show="{{ foreigneShow }}" show-toolbar position="bottom" bind:close="onForeignerClose">
+            <van-picker show-toolbar columns="{{ foreignerColumns }}" bind:cancel="onForeignerClose"
+              bind:confirm="onForeignerConfirm" />
+          </van-popup>
+          <!-- 4 来访事由 -->
+          <van-field required value="{{ VisitReason.reason }}" is-link readonly label="来访事由" placeholder="请选择来访事由"
+            bind:tap="onShowVisitReason" />
+          <van-popup show="{{ showVisitReason }}" bind:close="onCloseVisitReason" round position="bottom"
+            custom-style="height: 50%;">
+            <van-picker show-toolbar bind:cancel="onCloseVisitReason" bind:confirm="onConfirmVisitReason"
+              columns="{{ VisitReasonList }}" />
+          </van-popup>
+          <!-- 5 入场日期 -->
+          <!-- <van-cell required title="选择日期区间" value="{{ date }}" bind:click="onShowDate" placeholder="请选择日期"/> -->
+          <van-field required value="{{ date }}" is-link readonly label="选择日期区间" placeholder="请选择日期"
+            bind:tap="onShowDate" />
+          <van-calendar allow-same-day="true" color="#585ce5" show="{{ showDate }}" type="range"
+            bind:close="onCloseShowDate" bind:confirm="onConfirmShowDate" max-date="{{ maxDate }}" />
+          <!-- 6 选择厂区 -->
+          <van-field label="选择厂区" required readonly placeholder="" />
+          <van-radio-group class="PlaceChoose" value="{{ placeChoose }}" direction="horizontal"
+            bind:change="onPlaceChoose">
+            <van-radio class="placeChoose1" name="1">大东厂区</van-radio>
+            <van-radio class="placeChoose1" name="2">苏家屯厂区</van-radio>
+          </van-radio-group>
+          <!-- 7 活动轨迹 -->
+          <van-field label="活动轨迹" required model:value="{{ activityPath }}" placeholder="请输入活动轨迹" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 外来人员信息 -->
+    <view class="box2">
+      <view class="text" style="justify-content: space-between;">
+        <view>
+          <span class="blueBox"></span>外来人员信息
+        </view>
+        <view class="textWithBtn_btn" bindtap="onAddPerson">
+          <van-icon name="plus" custom-class="addBtn_icon"></van-icon>
+          增加人员
+        </view>
+      </view>
+      <van-divider />
+      <van-popup show="{{ showAddPerson }}" bind:close="onCloseAddPerson" round position="bottom"
+        custom-style="height: 50%;">
+        <view class="title">
+          <view class="title_leftBtn" bindtap="goAddPerson">
+            <van-icon name="add-o" custom-class="add-o-icon"></van-icon>新建信息
+          </view>
+          <view class="title_center"> 新增人员</view>
+          <view class="title_rightBtn" bindtap="confirmChoose">确定所选</view>
+        </view>
+        <view class="list">
+          <van-checkbox-group value="{{ result }}" bind:change="onChange">
+            <van-cell-group>
+              <van-cell wx:for="{{ wPersonsList }}" wx:key="id" title=" {{ item.name }}" value-class="value-class"
+                clickable data-index="{{ index }}" bind:click="toggle">
+                <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item.id }}" />
+              </van-cell>
+            </van-cell-group>
+          </van-checkbox-group>
+        </view>
+      </van-popup>
+      <view class="bas_info_content">
+        <view class="contain">
+          <view class="choosePerson" wx:for="{{ chooseWPersonsList }}" wx:key="id">
+            <view class="choosePerson_text">{{ item.name }}</view>
+            <view class="choosePerson_btn" bindtap="deleteChoose" data-id="{{ item.id }}">
+              <van-icon name="cross"></van-icon>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 携带物品备案 -->
+    <view class="box3">
+      <view class="text">
+        <span class="blueBox"></span>携带物品备案
+      </view>
+      <view class="bas_info_content areabox">
+        <van-field type="textarea" model:value="{{ carryObject }}" placeholder="请输入备注" border="{{ false }}"
+          input-class="textarea" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="chooseArea">
+  <view class="chooseBtn1 chooseBtn" hover-class="chooseBtn1_hover" hover-stay-time="50" bindtap="onCancel">
+    取消
+  </view>
+  <view class="chooseBtn {{isForeigner=='是'?'chooseBtn2_disabble':'chooseBtn2'}}" bindtap="onSubmit"
+    style="pointer-events: {{isForeigner=='是'?'none':'auto'}};">
+    <image class="icon" src="../../../picture/apply/upload.png"></image> 提交
+  </view>
+</view>

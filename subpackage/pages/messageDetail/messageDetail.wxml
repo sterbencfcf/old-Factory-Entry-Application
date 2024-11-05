@@ -1,0 +1,178 @@
+<navBar class="navBar_text" default_data="{{defaultData}}"></navBar>
+<view class="tab">
+  <vant_tabs color="#0788FF" sticky swipeable animated type="card">
+    <vant_tab title="流程状态">
+      <!-- <div slot="title">
+              流程状态
+              <image src="../../../picture/messageDetail/status.png"></image>
+            </div> -->
+      <view class="scroll_contain" style="height:{{height-76}}px">
+        <vant_steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-icon="{{activeIcon}}"
+          active-color="#0788FF" />
+        <view wx:if="{{showAgree}}">
+          <view class="bottom_box">
+            <view wx:if="{{showChoose}}">
+              <!-- 0 部门领导 -->
+              <van-field model:value="{{ receptionist }}" is-link readonly label="部门领导" placeholder="请选择部门领导"
+                bind:tap="onClickReceptionist" />
+              <van-popup custom-style="{height:90%}" bind:close="onCloseReceptionist" show="{{ showReceptionist }}"
+                round position="bottom">
+                <van-search model:value="{{ searchWord }}" focus="true" shape="round" placeholder="模糊搜索姓名"
+                  bind:change="onSearch" />
+                <van-picker show-toolbar columns="{{ receptionistList }}" bind:cancel="onCloseReceptionist"
+                  bind:confirm="onReceptionistConfirm" />
+              </van-popup>
+            </view>
+            <view class="shenpi_label">{{showChoose==true?"审核意见":"审批意见"}}</view>
+            <view class="bas_info_content">
+              <van-field type="textarea" model:value="{{ content }}" placeholder="请输入意见" border="{{ false }}"
+                input-class="textarea" />
+            </view>
+          </view>
+
+          <!-- <view class="bas_info_content">
+                        <view class="contain">
+                            <view class="choosePerson" wx:for="{{ usuallyContent }}" wx:key="index">
+                                <view class="choosePerson_text">{{ item }}</view>
+                                <view class="choosePerson_btn" bindtap="deleteChoose" data-item="{{ item }}">
+                                    <van-icon name="cross"></van-icon>
+                                </view>
+                            </view>
+                        </view>
+                    </view> -->
+          <view class="chooseArea">
+            <view class="chooseBtn1 chooseBtn" hover-class="chooseBtn1_hover" hover-stay-time="50" bindtap="onCancel"
+              data-index="0">
+              <view class="chooseBtn_text">退回</view>
+            </view>
+            <view class="chooseBtn2 chooseBtn" bindtap="onSubmit" data-index="1">
+              <view class="chooseBtn_text">同意</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </vant_tab>
+    <vant_tab title="详细信息">
+      <!-- <div slot="title">
+              <image src="../../../picture/messageDetail/info.png"></image>详细信息
+            </div> -->
+      <view class="scroll_contain" style="height:{{height}}px">
+        <!-- 延时信息 -->
+        <view class="box1" wx:if="{{type=='yanshi'}}">
+          <view class="text">
+            <span class="blueBox"></span>延时信息
+          </view>
+          <view class="bas_info_content">
+            <view class="info_line">
+              <!-- 0 延时地点 -->
+              <van-field label="延时地点" value="{{ todoMessage.lmappvisitdelay.delayPlace}}" readonly border="true" />
+              <!-- 1 延时日期 -->
+              <van-field label="延时日期"
+                value="{{ todoMessage.lmappvisitdelay.delayBeginDate == todoMessage.lmappvisitdelay.delayEndDate ? todoMessage.lmappvisitdelay.delayBeginDate : todoMessage.lmappvisitdelay.delayBeginDate + '至' + todoMessage.lmappvisitdelay.delayEndDate }}"
+                readonly border="true" />
+              <!-- 2 延时时间 -->
+              <van-field label="延时时间"
+                value="{{ todoMessage.lmappvisitdelay.delayBeginTime}}至{{ todoMessage.lmappvisitdelay.delayEndTime}}"
+                readonly border="true" />
+              <!-- 3 陪同人员 -->
+              <van-field label="陪同人员" value="{{todoMessage.lmappvisitdelay.accompanyinyPerson}}" readonly
+                border="true" />
+              <!-- 4 联系电话 -->
+              <van-field label="联系电话" value="{{ todoMessage.lmappvisitdelay.telephone}}" readonly border="true" />
+              <!-- 7 审批状态 -->
+              <van-field label="审批状态" value="{{ currentstate}}" readonly border="true" />
+            </view>
+          </view>
+        </view>
+        <!-- 基本信息 -->
+        <view class="box1">
+          <view class="text">
+            <span class="blueBox"></span>基本信息
+          </view>
+          <view class="bas_info_content">
+            <view class="info_line">
+              <!-- 0 主接人 -->
+              <van-field label="主接人" value="{{ todoMessage.lmappvisit.receptionistName}}" readonly border="true" />
+              <!-- 1 拟稿人所在部门 -->
+              <van-field label="主接人部门" value="{{ todoMessage.lmappvisit.receptionistDept}}" readonly border="true" />
+              <!-- 2 外来人员单位 -->
+              <van-field label="外来人员单位" value="{{ todoMessage.lmappvisit.visitorCompany}}" readonly border="true"
+                custom-style="overflow-y: scroll;" />
+              <!-- 3 是否为外籍或外企人员 -->
+              <van-field label="是否为外籍外企人员" value="{{todoMessage.lmappvisit.isForeigner==0?'否':'是'}}" readonly
+                border="true" />
+              <!-- 4 来访事由 -->
+              <van-field label="来访事由" value="{{ visitReason[todoMessage.lmappvisit.visitReason-1]}}" readonly
+                border="true" />
+              <!-- 5 入场日期 -->
+              <van-field label="来访日期"
+                value="{{ todoMessage.lmappvisit.visitBeginDate}}至{{ todoMessage.lmappvisit.visitEndDate}}" readonly
+                border="true" />
+              <!-- 6 厂区 -->
+              <van-field label="厂区" value="{{ todoMessage.lmappvisit.place}}" readonly border="true" />
+              <!-- 7 活动轨迹 -->
+              <van-field label="活动轨迹" value="{{ todoMessage.lmappvisit.activityPath}}" readonly border="true" />
+              <!-- 8 审批状态 -->
+              <van-field label="审批状态" value="{{ type=='yanshi'?'已完成 ':currentstate}}" readonly border="true" />
+            </view>
+          </view>
+        </view>
+
+        <!-- 外来人员信息 -->
+        <view class="box2">
+          <view class="text">
+            <span class="blueBox"></span>外来人员信息
+          </view>
+          <view class="bas_info_content">
+            <view class="contain">
+              <view class="choosePerson" wx:for="{{ todoMessage.lmappvisit.lmappVisitExternalPersons }}" wx:key="id"
+                bindtap="showPerson" data-id="{{item.externalPersonId}}">
+                <view class="choosePerson_text2">{{ item.name }}</view>
+              </view>
+            </view>
+          </view>
+          <van-popup show="{{ showAddPerson }}" bind:close="onCloseAddPerson" round position="bottom"
+            custom-style="height: 50%;" closeable>
+            <view class="popup-title">
+              <view class="title_center">外来人员信息</view>
+            </view>
+            <view class="list">
+              <button wx:if="{{inTime}}" bindtap="onCode" class="btn" hover-class='btn_hover'>生成二维码</button>
+              <van-field label="姓名" value="{{ personInfo.name}}" readonly border="true" input-align="right"
+                label-class="label-class" />
+              <van-field label="性别" value="{{ personInfo.sex=='m'?'男':'女'}}" readonly border="true" input-align="right"
+                label-class="label-class" />
+              <van-field label="年龄" value="{{ personInfo.age}}" readonly border="true" input-align="right"
+                label-class="label-class" />
+              <van-field label="手机号" value="{{ personInfo.telephone}}" readonly border="true" input-align="right"
+                label-class="label-class" />
+              <van-field label="身份证号" value="{{ personInfo.identityCardNum}}" readonly border="true" input-align="right"
+                label-class="label-class" />
+              <van-field label="是否司机" value="{{ personInfo.isDriver==1?'是':'否'}}" readonly border="true"
+                input-align="right" label-class="label-class" />
+              <van-field label="车牌号" value="{{ personInfo.carLicenseNum==null?'无':personInfo.carLicenseNum}}" readonly
+                border="true" input-align="right" label-class="label-class" />
+            </view>
+          </van-popup>
+          <van-popup show="{{ showCode }}" bind:close="onCloseCode" round closeable>
+            <view class="codename">{{name}}</view>
+            <view class="codebox">
+              <canvas type="2d" style="width: 520rpx; height: 520rpx;" id="myQrcode"></canvas>
+            </view>
+          </van-popup>
+        </view>
+
+        <!-- 携带物品备案 -->
+        <view class="box3">
+          <view class="text">
+            <span class="blueBox"></span>携带物品备案
+          </view>
+          <view class="bas_info_content areabox">
+            <view class="textsize">{{ todoMessage.lmappvisit.carryObject==null?'':todoMessage.lmappvisit.carryObject }}
+            </view>
+          </view>
+        </view>
+      </view>
+    </vant_tab>
+  </vant_tabs>
+</view>

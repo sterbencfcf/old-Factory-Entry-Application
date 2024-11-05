@@ -1,0 +1,72 @@
+/* 文本 */
+.contain {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx 40rpx 170rpx;
+}
+
+.title {
+  text-align: center;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.inside {
+  text-indent: 2em;
+  font-size: 36rpx;
+  font-family: 'cursive';
+}
+
+/* 最下方按钮 */
+.chooseArea {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.chooseBtn {
+  width: 327rpx;
+  height: 96rpx;
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.chooseBtn1 {
+  border: 2rpx solid #DCDCDC;
+  background: #F4F4F4;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.chooseBtn2 {
+  background: linear-gradient(270deg, #0788FF 0%, #4BA9FF 100%), #0052D9;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chooseBtn2_disabble {
+  background: linear-gradient(270deg, #75bcff 0%, #a7d4ff 100%), #0052D9;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin-right: 8rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.chooseBtn1_hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}

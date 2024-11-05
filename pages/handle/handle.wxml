@@ -1,0 +1,33 @@
+<!-- 顶部导航条 -->
+<navBar default_data="{{ defaultData }}"></navBar>
+<!-- 视窗 -->
+<view class="body">
+  <view class="funcArea">
+    <van-grid column-num="3" clickable border="{{ false }}">
+      <van-grid-item use-slot bind:click="onClick" data-index="0">
+        <image class="icon" src="../../picture/handle/icon1.png" />
+        <view class="text">入厂申请</view>
+      </van-grid-item>
+      <van-grid-item use-slot bind:click="onClick" data-index="1">
+        <image class="icon" src="../../picture/handle/icon2.png" />
+        <view class="text">延时申请</view>
+      </van-grid-item>
+      <van-grid-item use-slot bind:click="onClick" data-index="2">
+        <image class="icon" src="../../picture/handle/icon3.png" />
+        <view class="text">外来人员信息</view>
+      </van-grid-item>
+      <van-grid-item use-slot bind:click="onClick" data-index="3">
+        <image class="icon" src="../../picture/handle/icon4.png" />
+        <view class="text">历史入厂申请</view>
+      </van-grid-item>
+      <van-grid-item use-slot bind:click="onClick" data-index="4">
+        <image class="icon" src="../../picture/handle/icon5.png" />
+        <view class="text">历史延时申请</view>
+      </van-grid-item>
+      <!-- <van-grid-item use-slot bind:click="onClick" data-index="5">
+        <image class="icon" src="../../picture/handle/icon6.png" />
+        <view class="text">今日二维码</view>
+      </van-grid-item> -->
+    </van-grid>
+  </view>
+</view>
