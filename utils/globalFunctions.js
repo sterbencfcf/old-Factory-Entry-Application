@@ -1,23 +1,5 @@
 const CryptoJS = require("crypto-js");
 
-//加密数据
-function encryptData(data) {
-  let key = "liming";
-  const encryptedData = CryptoJS.DES.encrypt(
-    JSON.stringify(data),
-    key
-  ).toString();
-  return encryptedData;
-}
-
-//解密数据
-function decryptData(encryptedData) {
-  let key = "liming";
-  const bytes = CryptoJS.DES.decrypt(encryptedData, key);
-  const originalData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-  return originalData;
-}
-
 var myFunction = {
   getPageChange() {
     if (typeof this.getTabBar === "function" && this.getTabBar()) {
@@ -34,7 +16,7 @@ function loginFunc(url, data, cb) {
   wx.request({
     url: url,
     // data: data,
-    data: encryptData(data),
+    data: data,
     header: {
       "Content-Type": "application/x-www-form-urlencoded",
       "cache-control": "no-cache",
